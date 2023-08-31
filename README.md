@@ -1,23 +1,24 @@
 # TÍTULO DO PROJETO
 
-`CURSO`
+`Curso: Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Disciplina: Projeto: Desenvolvimento de uma aplicação interativa`
 
-`SEMESTRE`
+`2º Semestre`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Giovanni Dias Wludarski Resende
+* Kayki Jeronimo Letieri dos Santos
+* Luan Flamarion Marra Lima
+* Pedro Ianky Pinto Rodrigues
+* Rafaela Machado Colácio
 
 ## Orientador
 
-* Nome completo do professor 1
+* Daniela Carvalho Monteiro Ferreira
 
 ## Instruções de utilização
 
@@ -49,7 +50,7 @@ O link e o usuário/senha descritos acima são apenas exemplos de como tais info
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+<li><a href="src/ProjetoPet"> Código Fonte</a></li>
 
 # Apresentação
 
