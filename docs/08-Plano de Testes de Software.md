@@ -1,31 +1,25 @@
 # Plano de Testes de Software
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
+Os requisitos para realização dos testes de software são:
+*	Site publicado na Internet
+*	Navegador da Internet - Chrome, Firefox ou Edge
+*	Conectividade de Internet para acesso às plataformas (APISs)
+ </br>
 
-Apresente os cenários de testes utilizados na realização dos testes da sua aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos.
-
-Não deixe de enumerar os casos de teste de forma sequencial e de garantir que o(s) requisito(s) associado(s) a cada um deles está(ão) correto(s) - de acordo com o que foi definido na seção "2 - Especificação do Projeto". 
-
-Por exemplo:
+ Os testes funcionais a serem realizados no aplicativo são descritos a seguir. 
+ </br>
  
-| **Caso de Teste** 	| **CT-01 – Cadastrar perfil** 	|
+| **Caso de Teste** 	| **CT-01 - Cadastro de Usuário** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que esses consigam criar e gerenciar seu perfil. |
-| Objetivo do Teste 	| Verificar se o usuário consegue se cadastrar na aplicação. |
-| Passos 	| - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html<br> - Clicar em "Criar conta" <br> - Preencher os campos obrigatórios (e-mail, nome, sobrenome, celular, CPF, senha, confirmação de senha) <br> - Aceitar os termos de uso <br> - Clicar em "Registrar" |
-|Critério de Êxito | - O cadastro foi realizado com sucesso. |
-|  	|  	|
-| Caso de Teste 	| CT-02 – Efetuar login	|
-|Requisito Associado | RF-00Y	- A aplicação deve possuir opção de fazer login, sendo o login o endereço de e-mail. |
-| Objetivo do Teste 	| Verificar se o usuário consegue realizar login. |
-| Passos 	| - Acessar o navegador <br> - Informar o endereço do site https://adota-pet.herokuapp.com/src/index.html<br> - Clicar no botão "Entrar" <br> - Preencher o campo de e-mail <br> - Preencher o campo da senha <br> - Clicar em "Login" |
-|Critério de Êxito | - O login foi realizado com sucesso. |
+|	Requisito Associado 	| O site deve permitir que os usuários se cadastrem para agendar banhos de pet. |
+| Objetivo do Teste 	| Verificar se o cadastro de usuário está funcionando corretamente. |
+| Passos 	| 1) Acessar a página de cadastro de usuário. </br> 2) Preencher os campos obrigatórios (nome, e-mail, senha, etc.).</br> 3)Clicar no botão de cadastro.</br> 4)Verificar se o usuário é redirecionado para a página de sucesso de cadastro.</br> |
+|Critério de Êxito | O usuário é redirecionado para a página de sucesso de cadastro e os dados do usuário são armazenados corretamente no banco de dados. |
+</br>
 
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+ | **Caso de Teste** 	| **CT-02 - Agendamento de Banho** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	|  O site deve permitir que os usuários agendem banhos para seus pets. |
+| Objetivo do Teste 	|  Verificar se o agendamento de banho está funcionando corretamente. |
+| Passos 	|  1) Acessar a página de agendamentos.</br> 2) Selecionar o banhista para o qual deseja agendar o banho.</br> 3) Escolher a data e horário desejados.</br> 4)Clicar no botão de agendar. </br> 5)Verificar se o usuário é redirecionado para a página de sucesso de agendamento. |
+|Critério de Êxito |O usuário é redirecionado para a página de sucesso de agendamento e o agendamento é registrado corretamente no sistema. |
