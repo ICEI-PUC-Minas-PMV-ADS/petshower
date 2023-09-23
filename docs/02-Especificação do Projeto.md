@@ -1,93 +1,91 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foram consolidados através de uma pesquisa bibliográfica a respeito do aumento significativo de animais domésticos dentro dos lares e os fatores que influenciam na relação afetiva com os pets. Os detalhes levantados nesse processo foram consolidados na forma de personas e histórias de usuários. </br> </br>
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas levantadas durante o processo de entendimento do problema são apresentadas na Figuras que se seguem. </br>
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+![Persona1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t10-pmv-ads-2023-2-e2-projetopet/assets/85804740/4ce5571d-4a7e-4f5d-8e31-ea21d35fbf77)
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+</br>
 
+![Persona2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t10-pmv-ads-2023-2-e2-projetopet/assets/85804740/60f0ca19-b1b7-4095-b228-3952d6b33c36)
+
+</br>
+
+![Persona3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t10-pmv-ads-2023-2-e2-projetopet/assets/85804740/0751ea13-2ed7-4411-aaae-4acd8aa885bf)
+
+</br>
+
+![Persona4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t10-pmv-ads-2023-2-e2-projetopet/assets/85804740/da15980f-e132-496c-ac00-ac6ecd92a55b)
+
+
+
+</br> </br>
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Carolina de Arruda  | Encontrar um lugar que de banho e cuide bem do seu cachorro.| Pois não tem tempo de dar banho em seu cachorro.|
+|Raiane Mantovani| Encontrar um lugar para cortar o pelo do seu cachorro. | Pois busca manter a pelagem do seu pet limpa, livre de emaranhados e bem cuidada. |
+|Lucas e Juliana  | Deseja Um lugar que trate bem e de banho no pet.| Pois busca remover a sujeira acumulada e deixar seu pet com uma pelagem limpa, macia e cheirosa.|
+|Milena Botega Alves  | Deseja Um lugar que faça o corte ideal em seu pet.| Seu pet é peludo e difícil de fazer um corte bom.|
+|Ricardo Freire  |Deseja agendar um banho relaxante com massagem para seu cachorro.| pois busca proporcionar momentos de relaxamento para seu pet.|
+|João Carlos  |Deseja um banho pós-cirúrgico para seu cachorro.| Pois busca garantir a higienização adequada da área operada e auxiliar na recuperação do seu pet.|
+|Cristina Lima  | Deseja marcar um banho terapêutico para seu cachorro.|pois busca aliviar os sintomas de coceira e irritação na pele do seu pet, proporcionando alívio e conforto.|
+|Nathan Elias  | Deseja um banho relaxante e cuidadoso para seu cachorro.| pois busca minimizar o estresse e a ansiedade do seu pet durante o banho.|
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
-
+</br> </br>
 ## Requisitos
 
 As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+</br>
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| Permitir que o cliente se cadastre na plataforma do petshop | ALTA | 
+|RF-002| Permitir que o cliente faça login na plataforma do petshop  |  ALTA | 
+|RF-003| Permitir que o cliente visualize a agenda do petshop  |  MEDIA | 
+|RF-004| Permitir que o cliente seja capaz de agendar através da plataforma |  ALTA | 
+|RF-005| Permitir que o cliente remarque os agendamentos através da plataforma |  ALTA | 
+|RF-006| Permitir que o cliente desmarque os agendamentos através da plataforma |  ALTA | 
+|RF-007| Permitir que o petshop visualize os agendamentos com informações detalhadas do cliente |  MÉDIA | 
+|RF-008| Permitir que o petshop seja capaz de fazer agendamentos para os clientes |  MÉDIA | 
+|RF-009| Permitir que o petshop remarque agendamentos para clientes |  MÉDIA | 
+|RF-010| Permitir que o petshop desmarque agendamentos para clientes|  MÉDIA | 
+|RF-011| Permitir que o petshop cadastre clientes |  MÉDIA | 
+|RF-011| Permitir que o Banhistas/Recepcionistas/Donos do petshop façam login na plataforma |  ALTA | 
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| Sistema capaz de lidar com inúmeros usuários sem qualquer degradação no desempenho. | ALTA | 
+|RNF-002| A base de dados deve ser acessada apenas por usuários autenticados.  |  MÉDIA | 
+|RNF-003| Sistema com toda escalabilidade sendo capazde aumentar ou diminuir conforme o necessário. |  ALTA | 
+|RNF-004| O site deve ter bom nível de contraste entre os elementos da tela em conformidade. |  ALTA | 
+|RNF-005| Sistema possui disponibilidade 24 horas. |  ALTA | 
+|RNF-006| Sistema com usabilidade, tendo uma grande facilidade para o usuário. |  MÉDIA | 
+|RNF-007| Sistema compatível com os principais navegadores do mercado (Google Chrome, Microsoft Edge, Firefox, Safari). |  ALTA | 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
-
+</br> </br>
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir. </br>
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|01| A aplicação tem como prazo para a finalização do desenvolvimento até 06/12/2023. |
+|02| O projeto deve se restringir as tecnologias básicas de web back-end.|
+|03| A equipe não poderá subcontratar o desenvolvimento do projeto. |
+|04| Para realização do projeto a equipe deve definir e seguir em conjunto padrões de projeto.|
 
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+</br> </br>
 
 ## Diagrama de Casos de Uso
 
