@@ -25,3 +25,5 @@
 
 ## Wireframes
 
+- [Wireframes](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e2-proj-int-t10-pmv-ads-2023-2-e2-projetopet/issues/8#issue-1909892419)
+  
