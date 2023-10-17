@@ -1,6 +1,6 @@
-namespace PetShower.Domain.Models;
+namespace PetShower.Helpers;
 
-public class ErrorViewModel
+public class ErrorView
 {
     public string? RequestId { get; set; }
 
