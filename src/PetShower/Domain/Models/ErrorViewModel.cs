@@ -1,4 +1,4 @@
-namespace PetShower.Models;
+namespace PetShower.Domain.Models;
 
 public class ErrorViewModel
 {
