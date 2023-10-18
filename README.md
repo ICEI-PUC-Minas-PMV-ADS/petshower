@@ -50,7 +50,7 @@ O link e o usuário/senha descritos acima são apenas exemplos de como tais info
 
 # Código
 
-<li><a href="src/ProjetoPet"> Código Fonte</a></li>
+<li><a href="src/PetShower"> Código Fonte</a></li>
 
 # Apresentação
 
