@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+<img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/assets/54692628/17526238-0c4d-445f-b318-6b1a794db53b" alt="Logo" width="200">
 
 `Curso: Análise e Desenvolvimento de Sistemas`
 
@@ -6,7 +6,7 @@
 
 `2º Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+PetShower é uma plataforma de gerenciamento de consultas desenvolvida especificamente para petshops. Esta solução oferece uma variedade de recursos e funcionalidades projetados para simplificar e otimizar a administração de consultas e compromissos em estabelecimentos de cuidados para animais de estimação.
 
 ## Integrantes
 
