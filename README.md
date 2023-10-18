@@ -30,28 +30,59 @@ Se houver usuário de teste, o login e a senha também deverão ser informados a
 
 O link e o usuário/senha descritos acima são apenas exemplos de como tais informações deverão ser apresentadas.
 
+## Executar Projeto
+
+### Clonar o repositório:
+
+Clone o repositório do seu projeto para o seu ambiente local usando o Git. Use o comando abaixo:
+
+```bash
+git clone https://github.com/seu-usuario/seu-projeto.git
+```
+### Abrir o Projeto:
+
+Abra o diretório do projeto em sua IDE. Se você estiver usando o Visual Studio Code, use o comando:
+
+```bash
+code PetShower
+```
+### Restaurar as Dependências:
+
+Execute o seguinte comando para restaurar todas as dependências do projeto:
+
+```bash
+dotnet restore
+```
+### Compilar o Projeto:
+
+Compile o projeto com o seguinte comando:
+
+```bash
+dotnet build
+```
+### Executar a Aplicação:
+
+Use o seguinte comando para iniciar a aplicação:
+
+```bash
+dotnet run
+```
+Isso iniciará a aplicação em modo de desenvolvimento e fornecerá um URL para acessá-la (geralmente http://localhost:5000).
+
 # Documentação
 
 <ol>
-<li><a href="docs/01-Documentação de Contexto.md"> Documentação de Contexto</a></li>
-<li><a href="docs/02-Especificação do Projeto.md"> Especificação do Projeto</a></li>
-<li><a href="docs/03-Metodologia.md"> Metodologia</a></li>
-<li><a href="docs/04-Projeto de Interface.md"> Projeto de Interface</a></li>
-<li><a href="docs/05-Arquitetura da Solução.md"> Arquitetura da Solução</a></li>
-<li><a href="docs/06-Template Padrão da Aplicação.md"> Template Padrão da Aplicação</a></li>
-<li><a href="docs/07-Programação de Funcionalidades.md"> Programação de Funcionalidades</a></li>
-<li><a href="docs/08-Plano de Testes de Software.md"> Plano de Testes de Software</a></li>
-<li><a href="docs/09-Registro de Testes de Software.md"> Registro de Testes de Software</a></li>
-<li><a href="docs/10-Plano de Testes de Usabilidade.md"> Plano de Testes de Usabilidade</a></li>
-<li><a href="docs/11-Registro de Testes de Usabilidade.md"> Registro de Testes de Usabilidade</a></li>
-<li><a href="docs/12-Apresentação do Projeto.md"> Apresentação do Projeto</a></li>
-<li><a href="docs/13-Referências.md"> Referências</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Documenta%C3%A7%C3%A3o-de-Contexto"> Documentação de Contexto</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Especifica%C3%A7%C3%B5es-do-Projeto"> Especificação do Projeto</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Metodologia"> Metodologia</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Projeto-de-Interface"> Projeto de Interface</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Arquitetura-da-Solu%C3%A7%C3%A3o"> Arquitetura da Solução</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Template-Padr%C3%A3o-da-Aplica%C3%A7%C3%A3o"> Template Padrão da Aplicação</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Programa%C3%A7%C3%A3o-de-Funcionalidades"> Programação de Funcionalidades</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Plano-de-Testes-de-Software"> Plano de Testes de Software</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Registro-de-Testes-de-Software"> Registro de Testes de Software</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Plano-de-Testes-de-Usabilidade"> Plano de Testes de Usabilidade</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Registro-de-Testes-de-Usabilidade"> Registro de Testes de Usabilidade</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki"> Apresentação do Projeto</a></li>
+<li><a href="https://github.com/ICEI-PUC-Minas-PMV-ADS/PetShower/wiki/Refer%C3%AAncias"> Referências</a></li>
 </ol>
-
-# Código
-
-<li><a href="src/PetShower"> Código Fonte</a></li>
-
-# Apresentação
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
