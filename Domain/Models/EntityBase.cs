@@ -4,9 +4,9 @@ namespace PetShower.Domain.Models
 {
     public class EntityBase
     {
-        public long Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public bool IsDeleted { get; set; }
+        public virtual required long Id { get; set; }
+        public virtual required DateTime CreatedAt { get; set; }
+        public virtual required DateTime UpdatedAt { get; set; }
+        public virtual required bool IsDeleted { get; set; }
     }
 }

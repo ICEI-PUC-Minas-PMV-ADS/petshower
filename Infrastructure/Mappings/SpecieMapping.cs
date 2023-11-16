@@ -4,9 +4,9 @@ using PetShower.Domain.Models;
 
 namespace PetShower.Infrastructure.Mappings
 {
-    public class AppointmentMapping : IEntityTypeConfiguration<Appointment>
+    public class SpecieMapping : IEntityTypeConfiguration<Specie>
     {
-        public void Configure(EntityTypeBuilder<Appointment> builder)
+        public void Configure(EntityTypeBuilder<Specie> builder)
         {
             throw new NotImplementedException();
         }

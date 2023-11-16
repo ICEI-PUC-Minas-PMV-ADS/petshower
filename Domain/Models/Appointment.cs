@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using PetShower.Domain.Enums;
 
 namespace PetShower.Domain.Models
 {
     public class Appointment : EntityBase
     {
-        public Pet Patient { get; set; }
-        public IdentityUser Veterinarian { get; set; }
-        public DateTime Date { get; set; }
-        public StatusEnum Status { get; set; }
+        public virtual required long PatientId { get; set; }
+        public virtual required Pet Patient { get; set; }
+        public virtual required long VeterinarianId { get; set; }
+        public virtual required IdentityUser Veterinarian { get; set; }
+        public virtual string? Service {  get; set; }
+        public virtual required DateTime Date { get; set; }
+        public virtual required Status Status { get; set; }
     }
 }
