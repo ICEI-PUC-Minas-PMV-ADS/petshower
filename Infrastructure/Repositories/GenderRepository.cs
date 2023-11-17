@@ -5,7 +5,7 @@ namespace PetShower.Infrastructure.Repositories
 {
     public class GenderRepository : IGenderRepository
     {
-        public Task<Gender> CreateAsync(Gender gender)
+        public Task<Gender?> CreateAsync(Gender gender)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Gender>> GetAllAsync()
+        public Task<List<Gender?>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Gender> GetByIdAsync(long id)
+        public Task<Gender?> GetByIdAsync(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Gender> UpdateAsync(Gender gender)
+        public Task<Gender?> UpdateAsync(Gender gender)
         {
             throw new NotImplementedException();
         }

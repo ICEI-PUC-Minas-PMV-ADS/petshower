@@ -14,21 +14,21 @@ namespace PetShower.Infrastructure.Repositories
             _dbContext = applicationDbContext;
         }
 
-        public async Task<Pet> GetByIdAsync(long id)
+        public async Task<Pet?> GetByIdAsync(long id)
         {
             return await _dbContext.Pets
                 .Include(x => x.Owner)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<List<Pet>> GetAllAsync()
+        public async Task<List<Pet?>> GetAllAsync()
         {
             return await _dbContext.Pets
                 .Include(x => x.Owner)
                 .ToListAsync();
         }
 
-        public async Task<Pet> CreateAsync(Pet pet)
+        public async Task<Pet?> CreateAsync(Pet pet)
         {
             await _dbContext.Pets.AddAsync(pet);
             await _dbContext.SaveChangesAsync();
@@ -36,9 +36,9 @@ namespace PetShower.Infrastructure.Repositories
             return pet;
         }
 
-        public async Task<Pet> UpdateAsync(Pet pet)
+        public async Task<Pet?> UpdateAsync(Pet pet)
         {
-            Pet petById = await GetByIdAsync(pet.Id);
+            Pet? petById = await GetByIdAsync(pet.Id);
             petById.Name = pet.Name;
             petById.Specie = pet.Specie;
             petById.Breed = pet.Breed;
@@ -53,7 +53,7 @@ namespace PetShower.Infrastructure.Repositories
 
         public async Task DeleteAsync(long id)
         {
-            Pet petById = await GetByIdAsync(id);
+            Pet? petById = await GetByIdAsync(id);
             petById.IsDeleted = true;
             petById.UpdatedAt = DateTime.Now;
 

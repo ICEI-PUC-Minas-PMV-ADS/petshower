@@ -14,7 +14,7 @@ namespace PetShower.Infrastructure.Repositories
             _dbContext = applicationDbContext;
         }
 
-        public async Task<Appointment> GetByIdAsync(long id)
+        public async Task<Appointment?> GetByIdAsync(long id)
         {
             return await _dbContext.Appointments
                 .Include(a => a.Patient)
@@ -22,7 +22,7 @@ namespace PetShower.Infrastructure.Repositories
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
 
-        public async Task<List<Appointment>> GetAllAsync()
+        public async Task<List<Appointment?>> GetAllAsync()
         {
             return await _dbContext.Appointments
                 .Include(a => a.Patient)
@@ -30,7 +30,7 @@ namespace PetShower.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Appointment> CreateAsync(Appointment appointment)
+        public async Task<Appointment?> CreateAsync(Appointment appointment)
         {
             await _dbContext.Appointments.AddAsync(appointment);
             await _dbContext.SaveChangesAsync();
@@ -38,9 +38,9 @@ namespace PetShower.Infrastructure.Repositories
             return appointment;
         }
 
-        public async Task<Appointment> UpdateAsync(Appointment appointment)
+        public async Task<Appointment?> UpdateAsync(Appointment appointment)
         {
-            Appointment appointmentById = await GetByIdAsync(appointment.Id);
+            Appointment? appointmentById = await GetByIdAsync(appointment.Id);
             appointmentById.Patient = appointment.Patient;
             appointmentById.Veterinarian = appointment.Veterinarian;
             appointmentById.Date = appointment.Date;
@@ -55,7 +55,7 @@ namespace PetShower.Infrastructure.Repositories
 
         public async Task DeleteAsync(long id)
         {
-            Appointment appointmentById = await GetByIdAsync(id);
+            Appointment? appointmentById = await GetByIdAsync(id);
             appointmentById.IsDeleted = true;
             appointmentById.UpdatedAt = DateTime.Now;
 

@@ -25,6 +25,34 @@ namespace PetShower.Infrastructure.Mappings
                 .IsRequired()
                 .HasDefaultValue(false)
                 .HasColumnName("is_deleted");
+
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasColumnName("name");
+
+            builder.HasOne(x => x.Specie)
+                .WithMany()
+                .HasForeignKey(x => x.SpecieId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Breed)
+                .WithMany()
+                .HasForeignKey(x => x.BreedId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Owner)
+                .WithMany()
+                .HasForeignKey(x => x.OwnerId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Gender)
+                .WithMany()
+                .HasForeignKey(x => x.GenderId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

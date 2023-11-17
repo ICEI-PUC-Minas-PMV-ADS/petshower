@@ -5,7 +5,7 @@ namespace PetShower.Infrastructure.Repositories
 {
     public class BreedRepository : IBreedRepository
     {
-        public Task<Breed> CreateAsync(Breed breed)
+        public Task<Breed?> CreateAsync(Breed breed)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Breed>> GetAllAsync()
+        public Task<List<Breed?>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Breed> GetByIdAsync(long id)
+        public Task<Breed?> GetByIdAsync(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Breed> UpdateAsync(Breed breed)
+        public Task<Breed?> UpdateAsync(Breed breed)
         {
             throw new NotImplementedException();
         }

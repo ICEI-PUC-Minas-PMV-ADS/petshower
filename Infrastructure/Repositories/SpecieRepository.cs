@@ -5,7 +5,7 @@ namespace PetShower.Infrastructure.Repositories
 {
     public class SpecieRepository : ISpecieRepository
     {
-        public Task<Specie> CreateAsync(Specie specie)
+        public Task<Specie?> CreateAsync(Specie specie)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Specie>> GetAllAsync()
+        public Task<List<Specie?>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Specie> GetByIdAsync(long id)
+        public Task<Specie?> GetByIdAsync(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Specie> UpdateAsync(Specie specie)
+        public Task<Specie?> UpdateAsync(Specie specie)
         {
             throw new NotImplementedException();
         }

@@ -5,7 +5,7 @@ namespace PetShower.Infrastructure.Repositories
 {
     public class StatusRepository : IStatusRepository
     {
-        public Task<Status> CreateAsync(Status status)
+        public Task<Status?> CreateAsync(Status status)
         {
             throw new NotImplementedException();
         }
@@ -15,17 +15,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Status>> GetAllAsync()
+        public Task<List<Status?>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Status> GetByIdAsync(long id)
+        public Task<Status?> GetByIdAsync(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Status> UpdateAsync(Status status)
+        public Task<Status?> UpdateAsync(Status status)
         {
             throw new NotImplementedException();
         }
