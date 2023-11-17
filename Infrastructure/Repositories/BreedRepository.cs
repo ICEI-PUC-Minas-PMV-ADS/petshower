@@ -1,18 +1,16 @@
-﻿using PetShower.Domain.Models;
+﻿using PetShower.Data;
+using PetShower.Domain.Models;
 using PetShower.Infrastructure.Repositories.Interfaces;
 
 namespace PetShower.Infrastructure.Repositories
 {
     public class BreedRepository : IBreedRepository
     {
-        public Task<Breed?> CreateAsync(Breed breed)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly ApplicationDbContext _dbContext;
 
-        public Task DeleteAsync(long id)
+        public BreedRepository(ApplicationDbContext applicationDbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = applicationDbContext;
         }
 
         public Task<List<Breed?>> GetAllAsync()
@@ -25,7 +23,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<Breed?> CreateAsync(Breed breed)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Breed?> UpdateAsync(Breed breed)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(long id)
         {
             throw new NotImplementedException();
         }

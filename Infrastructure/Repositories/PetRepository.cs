@@ -14,18 +14,17 @@ namespace PetShower.Infrastructure.Repositories
             _dbContext = applicationDbContext;
         }
 
-        public async Task<Pet?> GetByIdAsync(long id)
-        {
-            return await _dbContext.Pets
-                .Include(x => x.Owner)
-                .FirstOrDefaultAsync(x => x.Id == id);
-        }
-
         public async Task<List<Pet?>> GetAllAsync()
         {
             return await _dbContext.Pets
                 .Include(x => x.Owner)
                 .ToListAsync();
+        }
+        public async Task<Pet?> GetByIdAsync(long id)
+        {
+            return await _dbContext.Pets
+                .Include(x => x.Owner)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Pet?> CreateAsync(Pet pet)

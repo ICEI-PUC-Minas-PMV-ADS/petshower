@@ -1,20 +1,17 @@
-﻿using PetShower.Domain.Models;
+﻿using PetShower.Data;
+using PetShower.Domain.Models;
 using PetShower.Infrastructure.Repositories.Interfaces;
 
 namespace PetShower.Infrastructure.Repositories
 {
     public class StatusRepository : IStatusRepository
     {
-        public Task<Status?> CreateAsync(Status status)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly ApplicationDbContext _dbContext;
 
-        public Task DeleteAsync(long id)
+        public StatusRepository(ApplicationDbContext applicationDbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = applicationDbContext;
         }
-
         public Task<List<Status?>> GetAllAsync()
         {
             throw new NotImplementedException();
@@ -25,7 +22,17 @@ namespace PetShower.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<Status?> CreateAsync(Status status)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Status?> UpdateAsync(Status status)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(long id)
         {
             throw new NotImplementedException();
         }

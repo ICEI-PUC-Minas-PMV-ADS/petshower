@@ -14,20 +14,20 @@ namespace PetShower.Infrastructure.Repositories
             _dbContext = applicationDbContext;
         }
 
-        public async Task<Appointment?> GetByIdAsync(long id)
-        {
-            return await _dbContext.Appointments
-                .Include(a => a.Patient)
-                .Include(a => a.Veterinarian)
-                .FirstOrDefaultAsync(a => a.Id == id);
-        }
-
         public async Task<List<Appointment?>> GetAllAsync()
         {
             return await _dbContext.Appointments
                 .Include(a => a.Patient)
                 .Include(a => a.Veterinarian)
                 .ToListAsync();
+        }
+
+        public async Task<Appointment?> GetByIdAsync(long id)
+        {
+            return await _dbContext.Appointments
+                .Include(a => a.Patient)
+                .Include(a => a.Veterinarian)
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
 
         public async Task<Appointment?> CreateAsync(Appointment appointment)
