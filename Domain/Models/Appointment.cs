@@ -7,7 +7,7 @@ namespace PetShower.Domain.Models
         public virtual required long PatientId { get; set; }
         public virtual required Pet Patient { get; set; }
         public virtual required long VeterinarianId { get; set; }
-        public virtual required IdentityUser Veterinarian { get; set; }
+        public virtual required Veterinarian Veterinarian { get; set; }
         public virtual string? Service {  get; set; }
         public virtual required DateTime Date { get; set; }
         public virtual required long StatusId { get; set; }
