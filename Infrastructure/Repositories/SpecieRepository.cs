@@ -1,39 +1,14 @@
-﻿using PetShower.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PetShower.Data;
 using PetShower.Domain.Models;
 using PetShower.Infrastructure.Repositories.Interfaces;
 
 namespace PetShower.Infrastructure.Repositories
 {
-    public class SpecieRepository : ISpecieRepository
+    public class SpecieRepository : Repository<Specie>, IRepository<Specie>, ISpecieRepository
     {
-        private readonly ApplicationDbContext _dbContext;
-
-        public SpecieRepository(ApplicationDbContext applicationDbContext)
+        public SpecieRepository(DbContext context) : base(context)
         {
-            _dbContext = applicationDbContext;
-        }
-        public Task<List<Specie?>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Specie?> GetByIdAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Specie?> CreateAsync(Specie specie)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<Specie?> UpdateAsync(Specie specie)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(long id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

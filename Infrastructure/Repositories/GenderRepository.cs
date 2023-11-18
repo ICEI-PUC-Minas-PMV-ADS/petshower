@@ -1,41 +1,14 @@
-﻿using PetShower.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PetShower.Data;
 using PetShower.Domain.Models;
 using PetShower.Infrastructure.Repositories.Interfaces;
 
 namespace PetShower.Infrastructure.Repositories
 {
-    public class GenderRepository : IGenderRepository
+    public class GenderRepository : Repository<Gender>, IRepository<Gender>, IGenderRepository
     {
-        private readonly ApplicationDbContext _dbContext;
-
-        public GenderRepository(ApplicationDbContext applicationDbContext)
+        public GenderRepository(DbContext context) : base(context)
         {
-            _dbContext = applicationDbContext;
-        }
-
-        public Task<List<Gender?>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Gender?> GetByIdAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Gender?> CreateAsync(Gender gender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Gender?> UpdateAsync(Gender gender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(long id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

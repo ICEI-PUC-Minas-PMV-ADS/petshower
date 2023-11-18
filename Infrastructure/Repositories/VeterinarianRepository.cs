@@ -1,33 +1,13 @@
-﻿using PetShower.Domain.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PetShower.Domain.Models;
 using PetShower.Infrastructure.Repositories.Interfaces;
 
 namespace PetShower.Infrastructure.Repositories
 {
-    public class VeterinarianRepository : IVeterinarianRepository
+    public class VeterinarianRepository : Repository<Veterinarian>, IRepository<Veterinarian>, IVeterinarianRepository
     {
-        public Task<List<Veterinarian?>> GetAllAsync()
+        public VeterinarianRepository(DbContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Veterinarian?> GetByIdAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Veterinarian?> CreateAsync(Veterinarian veterinarian)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Veterinarian?> UpdateAsync(Veterinarian veterinarian)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(long id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

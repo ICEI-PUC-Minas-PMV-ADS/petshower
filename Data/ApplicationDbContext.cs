@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PetShower.Domain.Models;
 using PetShower.Infrastructure.Mappings;
+using System.Reflection.Emit;
 
 namespace PetShower.Data;
 
@@ -31,9 +32,10 @@ public class ApplicationDbContext : IdentityDbContext
         builder.ApplyConfiguration(new VeterinarianMapping());
 
         base.OnModelCreating(builder);
+        Seed(builder);
     }
 
-    private void Seed(ModelBuilder modelBuilder)
+    private static void Seed(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Gender>().HasData(
             new Gender { Id = 1, Name = "Masculino", CreatedAt = DateTime.Now, UpdatedAt = DateTime.Now, IsDeleted = false },
