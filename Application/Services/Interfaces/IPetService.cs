@@ -9,6 +9,7 @@ namespace PetShower.Application.Services.Interfaces
         Task<Pet> CreatePet(Pet pet);
         Task<Pet> UpdatePet(Pet pet);
         Task SoftDeletePet(long id);
+        Task<IEnumerable<Pet>> GetPetsByUserIdAsync(string userId);
     }
 
 }

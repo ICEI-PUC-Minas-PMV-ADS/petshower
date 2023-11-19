@@ -9,5 +9,6 @@ namespace PetShower.Application.Services.Interfaces
         Task<Appointment> CreateAppointment(Appointment appointment);
         Task<Appointment> UpdateAppointment(Appointment appointment);
         Task SoftDeleteAppointment(long id);
+        Task<IEnumerable<Appointment>> GetAppointmentsByPetIdAsync(long userId);
     }
 }

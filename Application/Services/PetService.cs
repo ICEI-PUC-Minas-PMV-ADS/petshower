@@ -7,10 +7,12 @@ namespace PetShower.Application.Services
     public class PetService : IPetService
     {
         private readonly IRepository<Pet> _petRepository;
+        private readonly IPetRepository _petRepository1;
 
-        public PetService(IRepository<Pet> petRepository)
+        public PetService(IRepository<Pet> petRepository, IPetRepository petRepository1)
         {
             _petRepository = petRepository;
+            _petRepository1 = petRepository1;
         }
 
         public async Task<List<Pet>> GetAllPets()
@@ -36,6 +38,11 @@ namespace PetShower.Application.Services
         public async Task SoftDeletePet(long id)
         {
             await _petRepository.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<Pet>> GetPetsByUserIdAsync(string userId)
+        {
+            return await _petRepository1.GetPetsByUserIdAsync(userId);
         }
     }
 }

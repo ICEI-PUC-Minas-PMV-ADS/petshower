@@ -92,4 +92,17 @@ public class AppointmentController : Controller
         await _appointmentService.SoftDeleteAppointment(id);
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpGet("user/{userId}")]
+    public async Task<IActionResult> GetAppointmentsByPetId(long petId)
+    {
+        var appointments = await _appointmentService.GetAppointmentsByPetIdAsync(petId);
+
+        if (appointments == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(appointments);
+    }
 }

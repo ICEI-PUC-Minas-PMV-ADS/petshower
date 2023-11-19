@@ -92,4 +92,17 @@ public class PetController : Controller
         await _petService.SoftDeletePet(id);
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpGet("user/{userId}")]
+    public async Task<IActionResult> GetPetsByUserId(string userId)
+    {
+        var pets = await _petService.GetPetsByUserIdAsync(userId);
+
+        if (pets == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(pets);
+    }
 }

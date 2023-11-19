@@ -7,10 +7,12 @@ namespace PetShower.Application.Services
     public class AppointmentService : IAppointmentService
     {
         private readonly IRepository<Appointment> _appointmentRepository;
+        private readonly IAppointmentRepository _appointmentRepository1;
 
-        public AppointmentService(IRepository<Appointment> appointmentRepository)
+        public AppointmentService(IRepository<Appointment> appointmentRepository, IAppointmentRepository appointmentRepository1)
         {
             _appointmentRepository = appointmentRepository;
+            _appointmentRepository1 = appointmentRepository1;
         }
 
         public async Task<List<Appointment>> GetAllAppointments()
@@ -36,6 +38,11 @@ namespace PetShower.Application.Services
         public async Task SoftDeleteAppointment(long id)
         {
             await _appointmentRepository.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<Appointment>> GetAppointmentsByPetIdAsync(long userId)
+        {
+            return await _appointmentRepository1.GetAppointmentsByPetIdAsync(userId);
         }
     }
 
