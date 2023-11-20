@@ -48,6 +48,16 @@ public class PetController : Controller
         return View(pet);
     }
 
+    [HttpPost]
+    [Route("/registrar")]
+    
+    public async Task<IActionResult> CreateExemplo(Pet pet)
+    {
+        
+            await _petService.CreatePet(pet);
+        return Ok();
+    }
+
     public async Task<IActionResult> Edit(long id)
     {
         var pet = await _petService.GetPetById(id);

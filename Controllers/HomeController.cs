@@ -18,7 +18,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult AppPet()
+    {
+        return View();
+    }
+
+    public IActionResult _Consultations()
     {
         return View();
     }
