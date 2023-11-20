@@ -1,0 +1,142 @@
+﻿-@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Appointment";
+    Layout = "_Layout";
+}
+<style>
+    .agendamento_content {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        height: 95vh;
+        
+           }
+
+    .menu {
+        width: 100px;
+        height: 10px;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .agendamentos-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-size: 20px
+    }
+
+    .agendamento-services {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services {
+        display: flex;
+        flex-direction: row;
+        gap: 200px;
+        width: 580px;
+        font-size: 20px;
+    }
+
+    .agendamentos-choose {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px
+    }
+
+        .agendamentos-choose select {
+            width: 300px;
+            background-color: #F3F0F0;
+            padding: 10px;
+            border-radius: 40px;
+        }
+
+    .agendamentos-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .agendamentos-date select {
+            width: 300px;
+            background-color: #F3F0F0;
+            padding: 10px;
+            border-radius: 40px;
+        }
+
+    .agendamentos-button {
+        align-items: end;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+        .agendamentos-button button {
+            background-color: #00ADC5;
+            width: 150px;
+            padding: 18px
+            border-radius:20px;
+            font-size: 25px;
+            font-family: Acme;
+            margin-bottom: 15px;
+        }
+</style>
+<body> 
+    <div class="menu">
+            
+    </div>
+    <div class="agendamento_content">
+        <div class="agendamentos-container">
+            <div class="agendamentos-choose">
+                <h1>Agendamentos</h1>
+                <h3>Escolha um banhista/tosador</h3>
+                <select name="person" id="">
+                    <option value="1">Dr. Mônica</option>
+                    <option value="2">Dr. Fernando</option>
+                </select>
+            </div>
+            <div class="agendamento-services">
+                <h3>Selecione o serviço desejado</h3>
+                <div class="services">
+                    <div class="services1">
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Banho</label><br>
+
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Tosa Comum</label><br>
+
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Tosa Higiênica</label><br>
+                    </div>
+                    <div class="services2">
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Hidratação</label><br>
+
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Corte de unhas</label><br>
+
+                        <input type="checkbox" id="blue" name="colors" value="blue">
+                        <label for="blue">Spa dog</label><br>
+                    </div>
+                </div>
+            </div>
+            <div class="agendamentos-date">
+                <h3>Data e horário</h3>
+                <select name="date" id="">
+                    <option value="1">14/12 - 14:30h</option>
+                    <option value="2">17/12- 08:00h </option>
+                </select>
+            </div>
+            <div class="agendamentos-button">
+                <button>Agendar</button>
+            </div>
+        </div>
+    </div>
+</body>
