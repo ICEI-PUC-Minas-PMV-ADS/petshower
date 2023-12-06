@@ -1,0 +1,60 @@
+@page "/admin/listagendamento"
+@using Authen.Components.Layout
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using Authen.Data
+@using Authen.Application.Services
+@using Authen.Data.Domain
+@using Authen.Data.Domain.Enums
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize(Roles = "Admin")]
+@inject IAgendamentoService AgendamentoService
+@inject IPetService PetService
+@inject ITosadorBanhistaService TosadorBanhistaService
+@inject NavigationManager NavigationManager
+@using System.Security.Claims
+@inject AuthenticationStateProvider _authenticationStateProvider
+
+<PageTitle>Create Tosador/Banhista</PageTitle>
+
+
+
+<div class="row">
+   <div class="col-md-6">
+    <h2>Lista de Agendamentos</h2>
+    @if (agendamentos != null)
+    {
+        @foreach (var agendamento in agendamentos)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-calendar-alt"></i> Data: @agendamento.Data.ToShortDateString()
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-clock"></i> Horário: @agendamento.Horario</li>
+                        <li><i class="fas fa-tools"></i> Serviço: @agendamento.Servico</li>
+                        <li><i class="fas fa-paw"></i> Pet: @agendamento.Pet.Nome</li>
+                        <li><i class="fas fa-user"></i> Tosador/Banhista: @agendamento.TosadorBanhista.Nome</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+</div>
+
+@code {
+ private IEnumerable<Agendamento>? agendamentos;
+    protected override async Task OnInitializedAsync()
+    {
+ 
+        agendamentos = await AgendamentoService.ObterTodosAgendamentoAsync();
+    }
+   
+
+    
+}

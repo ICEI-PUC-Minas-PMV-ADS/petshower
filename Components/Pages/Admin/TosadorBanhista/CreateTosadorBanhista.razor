@@ -1,0 +1,108 @@
+@page "/admin/createTosadorBanhista"
+@using Authen.Components.Layout;
+@using System.ComponentModel.DataAnnotations
+@using System.Text
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+@using Authen.Data
+@using Authen.Application.Services
+@using Authen.Data.Domain
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize(Roles = "Admin")]
+@inject ITosadorBanhistaService TosadorBanhistaService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create Tosador/Banhista</PageTitle>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <StatusMessage Message="@Message" />
+        <div class="col-md-4">
+        <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterUser" FormName="createTosadorBanhista">
+            <DataAnnotationsValidator />
+            <h2>Create a new Tosador/Banhista.</h2>
+            <hr />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.Nome" class="form-control" autocomplete="username" aria-required="true" placeholder="Nome" />
+                <label for="email">Nome</label>
+                <ValidationMessage For="() => Input.Nome" class="text-danger" />
+            </div>
+    
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Create</button>
+        </EditForm>
+        </div>
+
+
+
+    </div>
+<div class="col-md-6">
+    <h2 class="mb-4">Lista de Tosadores/Banhistas</h2>
+    @if (tosadoresBanhistas != null)
+    {
+        <div class="list-group">
+            @foreach (var tosadorBanhista in tosadoresBanhistas)
+            {
+                <div class="list-group-item list-group-item-action mb-2">
+                    <h5 class="mb-1">@tosadorBanhista.Nome</h5>
+                 
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>Nenhum tosador ou banhista encontrado.</p>
+    }
+</div>
+
+</div>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+ 
+        tosadoresBanhistas = await TosadorBanhistaService.ObterTodosTosadorBanhistaAsync();
+    }
+    private IEnumerable<IdentityError>? identityErrors;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+     private IEnumerable<TosadorBanhista>? tosadoresBanhistas;
+
+       private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+
+        public async Task RegisterUser(EditContext editContext)
+    {
+        var tosadorBanhista = new TosadorBanhista
+        {
+            Nome = Input.Nome,
+           
+        };
+
+        await TosadorBanhistaService.CriarTosadorBanhistaAsync(tosadorBanhista);
+
+        // Após criar um novo TosadorBanhista, atualize a lista
+        tosadoresBanhistas = await TosadorBanhistaService.ObterTodosTosadorBanhistaAsync();
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; } = "";
+
+
+    }
+
+
+    
+}
