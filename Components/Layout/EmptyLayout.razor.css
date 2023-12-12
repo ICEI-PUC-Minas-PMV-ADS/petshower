@@ -1,0 +1,112 @@
+main{
+   color:#000; 
+}
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+
+       z-index: -1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #3584e4;
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 19s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 76%;
+    width: 122px;
+    height: 122px;
+    bottom: -122px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 11%;
+    width: 165px;
+    height: 165px;
+    bottom: -165px;
+    animation-delay: 2s;
+}
+.background li:nth-child(2) {
+    left: 52%;
+    width: 109px;
+    height: 109px;
+    bottom: -109px;
+    animation-delay: 10s;
+}
+.background li:nth-child(3) {
+    left: 82%;
+    width: 161px;
+    height: 161px;
+    bottom: -161px;
+    animation-delay: 3s;
+}
+.background li:nth-child(4) {
+    left: 18%;
+    width: 100px;
+    height: 100px;
+    bottom: -100px;
+    animation-delay: 7s;
+}
+.background li:nth-child(5) {
+    left: 33%;
+    width: 149px;
+    height: 149px;
+    bottom: -149px;
+    animation-delay: 23s;
+}
+.background li:nth-child(6) {
+    left: 15%;
+    width: 129px;
+    height: 129px;
+    bottom: -129px;
+    animation-delay: 14s;
+}
+.background li:nth-child(7) {
+    left: 51%;
+    width: 125px;
+    height: 125px;
+    bottom: -125px;
+    animation-delay: 10s;
+}
+.background li:nth-child(8) {
+    left: 85%;
+    width: 160px;
+    height: 160px;
+    bottom: -160px;
+    animation-delay: 3s;
+}
+.background li:nth-child(9) {
+    left: 27%;
+    width: 117px;
+    height: 117px;
+    bottom: -117px;
+    animation-delay: 19s;
+}

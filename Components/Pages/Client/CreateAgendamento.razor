@@ -1,0 +1,170 @@
+﻿@page "/agendamento/createAgendamento"
+
+@using Authen.Components.Layout
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using Authen.Data
+@using Authen.Application.Services
+@using Authen.Data.Domain
+@using Authen.Data.Domain.Enums
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize(Roles = "Client")]
+@inject IAgendamentoService AgendamentoService
+@inject IPetService PetService
+@inject ITosadorBanhistaService TosadorBanhistaService
+@inject NavigationManager NavigationManager
+@using System.Security.Claims
+@inject AuthenticationStateProvider _authenticationStateProvider
+<PageTitle>Create Agendamento</PageTitle>
+
+<div class="row">
+    <div class="col-md-6">
+        <StatusMessage Message="@Message" />
+        <div class="col-md-4">
+            <EditForm Model="InputAgendamento" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="Agendar" FormName="createAgendamento">
+                <DataAnnotationsValidator />
+                <h2>Create a new Agendamento.</h2>
+                <hr />
+                <ValidationSummary class="text-danger" role="alert" />
+                <div class="form-floating mb-3">
+                    <InputDate @bind-Value="InputAgendamento.Data" class="form-control" autocomplete="agendamentoData" aria-required="true" placeholder="Data" />
+                    <label for="agendamentoData">Data</label>
+                    <ValidationMessage For="() => InputAgendamento.Data" class="text-danger" />
+                </div>
+       <div class="form-floating mb-3">
+             <InputText @bind-Value="InputAgendamento.Horario" class="form-control"  @bind:format="HH:mm" aria-required="true" placeholder="00:00" />
+           <label for="agendamentoHorario">Horário</label>
+           <ValidationMessage For="() => InputAgendamento.Horario" class="text-danger" />
+        </div>
+
+
+
+                <div class="form-floating mb-3">
+                    <InputSelect @bind-Value="InputAgendamento.Servico" class="form-control">
+                        @foreach (var servico in Enum.GetValues(typeof(Servico)))
+                        {
+                            <option value="@servico">@servico</option>
+                        }
+                    </InputSelect>
+                    <label for="agendamentoServico">Serviço</label>
+                    <ValidationMessage For="() => InputAgendamento.Servico" class="text-danger" />
+                </div>
+
+                <div class="form-floating mb-3">
+                   
+                    <InputSelect @bind-Value="InputAgendamento.PetId" class="form-control" id="petid">
+                        @foreach (var pet in pets)
+                        {
+                            <option value="@pet.Id">@pet.Nome</option>
+                        }
+                    </InputSelect>
+                    <label for="agendamentoPet">Pet </label>
+                    <ValidationMessage For="() => InputAgendamento.PetId" class="text-danger" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputSelect @bind-Value="InputAgendamento.TosadorBanhistaId" class="form-control">
+                        @foreach (var tosadorBanhista in tosadoresBanhistas)
+                        {
+                            <option value="@tosadorBanhista.Id">@tosadorBanhista.Nome </option>
+                        }
+                    </InputSelect>
+                    <label for="agendamentoTosadorBanhista">Tosador/Banhista @InputAgendamento.TosadorBanhistaId</label>
+                    <ValidationMessage For="() => InputAgendamento.TosadorBanhistaId" class="text-danger" />
+                </div>
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Agendar</button>
+            </EditForm>
+        </div>
+    </div>
+<div class="col-md-6">
+    <h2>Lista de Agendamentos</h2>
+    @if (agendamentos != null)
+    {
+        @foreach (var agendamento in agendamentos)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-calendar-alt"></i> Data: @agendamento.Data.ToShortDateString()
+                    </h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-clock"></i> Horário: @agendamento.Horario</li>
+                        <li><i class="fas fa-tools"></i> Serviço: @agendamento.Servico</li>
+                        <li><i class="fas fa-paw"></i> Pet: @agendamento.Pet.Nome</li>
+                        <li><i class="fas fa-user"></i> Tosador/Banhista: @agendamento.TosadorBanhista.Nome</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        agendamentos = await AgendamentoService.ObterTodosAgendamentoAsync();
+        pets = await PetService.ObterTodosPetAsync();
+        tosadoresBanhistas = await TosadorBanhistaService.ObterTodosTosadorBanhistaAsync();
+    }
+
+    private IEnumerable<IdentityError>? identityErrors;
+
+    [SupplyParameterFromForm]
+    private InputModelAgendamento InputAgendamento { get; set; } = new InputModelAgendamento();
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+
+    private IEnumerable<Agendamento>? agendamentos;
+    private IEnumerable<Pet>? pets;
+    private IEnumerable<TosadorBanhista>? tosadoresBanhistas;
+
+    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+
+    public async Task Agendar(EditContext editContext)
+    {
+        var authState = await _authenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var Id = user.FindFirstValue(ClaimTypes.NameIdentifier);
+        var agendamento = new Agendamento
+        {
+            Data = InputAgendamento.Data,
+            Horario = InputAgendamento.Horario,
+            Servico = InputAgendamento.Servico,
+            PetId = InputAgendamento.PetId,
+            TosadorBanhistaId = InputAgendamento.TosadorBanhistaId,
+            ApplicationUserId = Id,
+        };
+
+        await AgendamentoService.CriarAgendamentoAsync(agendamento);
+
+        agendamentos = await AgendamentoService.ObterTodosAgendamentoAsync();
+    }
+
+    private sealed class InputModelAgendamento
+    {
+        [Required]
+        [Display(Name = "Data")]
+        public DateTime Data { get; set; } = DateTime.Now;
+
+        [Required]
+        [Display(Name = "Horário")]
+        public string Horario { get; set; } 
+
+        [Required]
+        [Display(Name = "Serviço")]
+        public Servico Servico { get; set; }
+
+        [Required]
+        [Display(Name = "Pet")]
+        public int PetId { get; set; }
+
+        [Required]
+        [Display(Name = "Tosador/Banhista")]
+        public int TosadorBanhistaId { get; set; }
+    }
+}

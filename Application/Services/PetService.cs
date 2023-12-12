@@ -1,41 +1,38 @@
-﻿using PetShower.Application.Services.Interfaces;
-using PetShower.Domain.Models;
-using PetShower.Infrastructure.Repositories.Interfaces;
-
-namespace PetShower.Application.Services
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Authen.Data.Domain;
+using Authen.Data;
+using Microsoft.EntityFrameworkCore;
+namespace Authen.Application.Services
 {
-    public class PetService : IPetService
+   public interface IPetService
+{
+    Task CriarPetAsync(Pet Pet);
+    Task<List<Pet>> ObterTodosPetAsync();
+}
+public class PetService : IPetService
+{
+    private readonly ApplicationDbContext _context;
+
+    public PetService(ApplicationDbContext context)
     {
-        private readonly IRepository<Pet> _petRepository;
-
-        public PetService(IRepository<Pet> petRepository)
-        {
-            _petRepository = petRepository;
-        }
-
-        public async Task<List<Pet>> GetAllPets()
-        {
-            return await _petRepository.GetAllAsync();
-        }
-
-        public async Task<Pet> GetPetById(long id)
-        {
-            return await _petRepository.GetByIdAsync(id);
-        }
-
-        public async Task<Pet> CreatePet(Pet pet)
-        {
-            return await _petRepository.CreateAsync(pet);
-        }
-
-        public async Task<Pet> UpdatePet(Pet pet)
-        {
-            return await _petRepository.UpdateAsync(pet);
-        }
-
-        public async Task SoftDeletePet(long id)
-        {
-            await _petRepository.DeleteAsync(id);
-        }
+        _context = context;
     }
+
+    public async Task CriarPetAsync(Pet Pet)
+    {
+        _context.Pet.Add(Pet);
+        await _context.SaveChangesAsync();
+    }
+
+public async Task<List<Pet>> ObterTodosPetAsync()
+{
+   
+    var tosadoresBanhistas = await _context.Pet.ToListAsync();
+
+    return tosadoresBanhistas;
+}
+}
 }

@@ -1,0 +1,128 @@
+﻿@page "/client/createPet"
+
+@using Authen.Components.Layout
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using Authen.Data
+@using Authen.Application.Services
+@using Authen.Data.Domain
+@using Authen.Data.Domain.Enums
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize(Roles = "Client")]
+@inject IPetService PetService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create Pet</PageTitle>
+
+<div class="row">
+    <div class="col-md-6">
+        <StatusMessage Message="@Message" />
+        <div class="col-md-4">
+            <EditForm Model="Input" asp-route-returnUrl="@ReturnUrl" method="post" OnValidSubmit="RegisterPet" FormName="createPet">
+                <DataAnnotationsValidator />
+                <h2>Create a new Pet.</h2>
+                <hr />
+                <ValidationSummary class="text-danger" role="alert" />
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.Nome" class="form-control" autocomplete="petname" aria-required="true" placeholder="Nome" />
+                    <label for="petname">Nome</label>
+                    <ValidationMessage For="() => Input.Nome" class="text-danger" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText @bind-Value="Input.Raca" class="form-control" autocomplete="petrace" aria-required="true" placeholder="Raça" />
+                    <label for="petrace">Raça</label>
+                    <ValidationMessage For="() => Input.Raca" class="text-danger" />
+                </div>
+               <div class="mb-3">
+
+                <div class="form-floating mb-3">
+                    <InputSelect @bind-Value="Input.Porte" class="form-control">
+                        @foreach (var porte in Enum.GetValues(typeof(Porte)))
+                        {
+                            <option value="@porte">@porte</option>
+                        }
+                    </InputSelect>
+                    <label for="agendamentoServico">Porte</label>
+                    <ValidationMessage For="() => Input.Porte" class="text-danger" />
+                </div>
+                </div>
+
+
+    
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Create</button>
+            </EditForm>
+        </div>
+    </div>
+<div class="col-md-6 border rounded p-3 shadow">
+    <h2><i class="fas fa-paw"></i> Lista de Pets</h2>
+    @if (pets != null)
+    {
+        foreach (var pet in pets)
+        {
+            <div class="border-top mt-3 pt-3">
+                <p class="mb-0">
+                    <span class="badge bg-danger"><i class="bi bi-paw-fill"></i> Nome:</span> 
+                    <strong>@pet.Nome</strong> 
+                    <span class="badge bg-info"><i class="bi bi-dog"></i> Raça:</span> 
+                    <strong>@pet.Raca</strong> 
+                    <span class="badge bg-success"><i class="bi bi-ruler"></i> Porte:</span> 
+                    <strong>@pet.Porte</strong>
+                </p>
+            </div>
+        }
+    }
+</div>
+
+
+
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        pets = await PetService.ObterTodosPetAsync();
+    }
+
+    private IEnumerable<IdentityError>? identityErrors;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    private IEnumerable<Pet>? pets;
+
+    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+
+    public async Task RegisterPet(EditContext editContext)
+    {
+        var pet = new Pet
+            {
+                Nome = Input.Nome,
+                Raca = Input.Raca,
+                Porte = Input.Porte,
+
+            };
+
+        await PetService.CriarPetAsync(pet);
+
+        pets = await PetService.ObterTodosPetAsync();
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; } = "";
+
+        [Required]
+        [Display(Name = "Raça")]
+        public string Raca { get; set; } = "";
+
+        [Required]
+        [Display(Name = "Porte")]
+        public Porte Porte { get; set; }
+    }
+}
